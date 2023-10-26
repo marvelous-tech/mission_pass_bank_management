@@ -1,36 +1,42 @@
 import json
 import config
 import FileHandler
+from random import randint
 
 class Account:
 
     type = ''
-    id:int
-    def __init__(self,user):
-        self.user = user
+    def __init__(self,user_id):
+        self.user_id = user_id
         self.balance: int = 0
-        self.id += 1
+        self.account_id = self.account_id_generator()
 
     def get_balance(self):
         return self.balance
     def set_balance(self,amount):
         self.balance += amount
 
-    def add_account(self):
-        pass
+    def account_id_generator(self):
+        return randint(0,9999999999)
 
+    def view_accounts(self):
+        data = FileHandler.read_file()
+        return data
+
+    def add_account(self):
+        data = self.view_accounts()
+        data.append(self.to_dict())
+        FileHandler.write_file(data)
     def to_dict(self):
-        return {'AccountId':self.id,'Fullname':self.user['fullname'],'email':self.user['email'],'Account_Type': self.type,'Balance':self.balance}
+        return {'Account Id':self.account_id,'User Id':self.user_id,'Account_Type': self.type,'Balance':self.balance}
 
 
 
 class FDRAccount(Account):
     type ='FDR Account'
-    id:int
 
     def __init__(self,user):
         super().__init__(user)
-        self.id = super().id
 
 
 class CurrentAccount(Account):
@@ -44,12 +50,37 @@ class SavingsAccount(Account):
     type = 'Savings Account'
     def __init__(self,user):
         super().__init__(user)
-        self.id = super().id
 
 
 if __name__ == '__main__':
-    user = {'fullname': 'shrif', 'email': 'mail4newaj@gmail.com'}
-    ob = CurrentAccount(user)
-    #ob.add_account()
-    print(ob.id)
-    print(ob.type)
+    user = {"fullname": "fahim","email": "mail4fahim@gmail.com"}
+    ob = SavingsAccount(user)
+    print(ob.to_dict())
+    ob.add_account()
+    temp = ob.view_accounts()
+    print(temp)
+
+
+def create_account(userid,account_type):
+
+    if account_type == 1:
+        ob = FDRAccount(userid)
+        ob.add_account()
+        print("Account is successfully created")
+    elif account_type == 2:
+        ob = CurrentAccount(userid)
+        ob.add_account()
+        print("Account is successfully created")
+    elif account_type == 3:
+        ob = SavingsAccount(userid)
+        ob.add_account()
+        print("Account is successfully created")
+    else:
+        print("pass a valid choice")
+
+
+def get_account_balance(account_no):
+    data = FileHandler.read_file()
+    for temp in data:
+        if temp['account_id'] == account_no
+            return temp['balance']

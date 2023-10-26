@@ -1,12 +1,10 @@
 import json
 import config
-def write_file(self,ob):
+def write_file(user):
     with open(config.ACCOUNT_FILE_PATH, 'w') as f:
-        temp = {'fullname': ob.user['fullname'], 'email': ob.user['email'], 'account_type': ob.type}
-        print(temp)
-        json.dumps(temp, f, indent=4)
+        json.dump(user, f, indent=4)
 
-def read_file(self):
+def read_file():
     with open(config.ACCOUNT_FILE_PATH,'r') as f:
-        data = json.loads(f)
-        return data
+        data = json.load(f)
+    return data
