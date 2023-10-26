@@ -35,6 +35,7 @@ class FDRAccount(Account):
 
 class CurrentAccount(Account):
     type = 'Current Account'
+
     def __init__(self,user):
         super().__init__(user)
         self.id = super().id
