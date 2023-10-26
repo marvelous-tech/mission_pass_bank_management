@@ -1,5 +1,14 @@
-{
-    "Fullname": "Newaj",
-    "Email": "mail4newaj@gmail.com",
-    "Account_Type": "Current Account"
-}
+[
+    {
+        "Fullname": "newaj",
+        "email": "mail4newaj@gmail.com",
+        "Account_Type": "Savings Account",
+        "Balance": 0
+    },
+    {
+        "Fullname": "fahim",
+        "email": "mail4fahim@gmail.com",
+        "Account_Type": "Savings Account",
+        "Balance": 0
+    }
+]
