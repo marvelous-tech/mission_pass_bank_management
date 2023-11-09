@@ -12,5 +12,19 @@
         "Email": "tyi",
         "Phone": "tyui",
         "Password": "97f83e01e2415aec8ad2f513119f053e48c67212a1f4aeeb5a8ef0116f7264a6"
+    },
+    {
+        "User_ID": "c6abc976-481c-4cc7-803e-4e6b5e20adae",
+        "Name": "Nishad",
+        "Email": "nishad@gmail.com",
+        "Phone": "13",
+        "Password": "a03ab19b866fc585b5cb1812a2f63ca861e7e7643ee5d43fd7106b623725fd67"
+    },
+    {
+        "User_ID": "02f9d9d1-cb85-44c0-839e-d70f86a4a8f3",
+        "Name": "Sakib",
+        "Email": "s@gmail.com",
+        "Phone": "123",
+        "Password": "a03ab19b866fc585b5cb1812a2f63ca861e7e7643ee5d43fd7106b623725fd67"
     }
 ]
